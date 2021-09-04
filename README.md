@@ -2,13 +2,18 @@
 
 ## Verify the monitoring installation
 
-*TODO:* run `kubectl` command to show the running pods and services for the three components. Copy and paste the output or take a screenshot of the output and include it here to verify the installation
+*DONE:* run `kubectl` command to show the running pods and services for the three components. Copy and paste the output or take a screenshot of the output and include it here to verify the installation
+Monitoring: [Monitoring Namespace](answer-img/monitoring-pods-and-svc.png)
+Observability: [Observability Namespace](answer-img/observability-pods-and-svc.png)
+App: [Default Namespace](answer-img/app-pods-and-svc.png)
 
 ## Setup the Jaeger and Prometheus source
-*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+*DONE:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+Image: [Grafana Home](answer-img/grafana-home.png)
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+*DONE:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+Image: [Prometheus Dashboard](answer-img/prometheus-dashboard.png)
 
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
