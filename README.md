@@ -1,3 +1,6 @@
+kubectl port-forward -n monitoring prometheus-grafana-79fc544c99-txj9t --address 0.0.0.0 3000:3000
+kubectl port-forward svc/frontend-service --address 0.0.0.0 8080:8080
+
 **Note:** For the screenshots, you can store all of your answer images in the `answer-img` directory.
 
 ## Verify the monitoring installation
@@ -16,10 +19,20 @@ Image: [Grafana Home](answer-img/grafana-home.png)
 Image: [Prometheus Dashboard](answer-img/prometheus-dashboard.png)
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+*DONE:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+SLIs are specific metrics that are used to measure the performance of a service. If we have an SLO that specifies a specific uptime objective, like 99% for the month, then the SLI would be the actual, measured uptime for the prior month. Request response time would be similar. If they defined a goal, like 500ms, then the SLI would be the average response time for all requests for the month.
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+*DONE:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+1. Uptime: the amount of time that the service is available. This one captures exactly what the SLO requests. It will be useful for measuring compliance, even if it wouldn't help for diagnosing any underlying issues. 
+
+2. Error Rate: the percent of requests that resulted in a 4xx or 5xx error. This is 
+
+3. Average latency: the average response time for all successful (2xx) requests. This captures exactly what the SLO requests.
+
+4. Percent of requests above the SLO defined response time. This will help us to dig into the requests that are problematic so that we can correct them.
+
+5. Throughput per second: number of requests per second that the application handles on average. This can be useful to find trends of high utilization of the system.
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
